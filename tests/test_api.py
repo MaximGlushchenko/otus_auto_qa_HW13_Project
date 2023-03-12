@@ -88,9 +88,9 @@ def test_get_product_list_from_cart(api_session, api_token,base_url, product_id,
 
 
 @pytest.mark.parametrize('coupon', COUPON_LIST)
-def test_coupon_add(api_session, api_token,base_url, coupon):
-    """Купоны в COUPON_LIST действительны до 01/01/2025.При необходимости
-     их можно продлить или создать заново в разделе администрирования"""
+def test_coupon_add(api_session, api_token, base_url, coupon):
+    # """Купоны в COUPON_LIST действительны до 01/01/2025.При необходимости
+    #  их можно продлить или создать заново в разделе администрирования"""
 
     response = api_session.post(
         f'{base_url}/index.php?route=api/coupon',

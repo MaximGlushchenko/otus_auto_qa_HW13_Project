@@ -11,6 +11,9 @@ from webdriver_manager.firefox import GeckoDriverManager
 admin_username = "user"
 admin_password = "bitnami"
 
+api_username = 'Default'
+api_key = '10xocPi4Lbx4P4UiPzSDzAvMQIk5WaZSz2t9EKd2QtQKOdxF8jby9NU4PJ6rAAUSUzUWyPSOsMBxUBEkXCSgsxcEqLzoQ9ixCvvJEGYviHz7pq7s2EaNH6TxMPXqmsHZ5oY2PT7XFg5UbyyYZPbnOf6WSW5kP7DipSxgxKxABcwNAbAHNhsbielTxy2uUCQhDNaPv6MuZLfhyRephC9WFNNxfsl893HUaS5ZetsbfR6jiXeWdL2W6X8nUPRKNFD5'
+
 USD_to_EUR_ratio = 0.7846013289036545
 USD_to_GBP_ratio = 0.6125083056478405
 

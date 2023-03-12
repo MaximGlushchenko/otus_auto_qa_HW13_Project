@@ -2,7 +2,7 @@ import allure
 from locators import *
 from faker import Faker
 from page_objects.BasePage import BasePage
-from conftest import admin_username, admin_password
+from UI_tests_data import admin_username, admin_password
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 

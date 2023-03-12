@@ -1,23 +1,18 @@
+import json
 import pytest
 import logging
+import allure
+import requests
+from faker import Faker
 from selenium import webdriver
+from string import ascii_uppercase
+from API_tests_data import api_key, api_username
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
-
-admin_username = "user"
-admin_password = "bitnami"
-
-api_username = 'Default'
-api_key = '10xocPi4Lbx4P4UiPzSDzAvMQIk5WaZSz2t9EKd2QtQKOdxF8jby9NU4PJ6rAAUSUzUWyPSOsMBxUBEkXCSgsxcEqLzoQ9ixCvvJEGYviHz7pq7s2EaNH6TxMPXqmsHZ5oY2PT7XFg5UbyyYZPbnOf6WSW5kP7DipSxgxKxABcwNAbAHNhsbielTxy2uUCQhDNaPv6MuZLfhyRephC9WFNNxfsl893HUaS5ZetsbfR6jiXeWdL2W6X8nUPRKNFD5'
-
-USD_to_EUR_ratio = 0.7846013289036545
-USD_to_GBP_ratio = 0.6125083056478405
-
-catalog_section = ["desktops", "laptop-notebook", "tablet", "smartphone", "camera", "mp3-players"]
 
 
 def pytest_addoption(parser):
@@ -43,6 +38,44 @@ def pytest_addoption(parser):
                      action="store_true")
     parser.addoption("--video",
                      action="store_true")
+
+
+@allure.step("Getting fake user {data_name}")
+def get_data(data_name):
+    fake = Faker()
+    if data_name == "firstname":
+        firstname = fake.first_name()
+        return firstname
+    elif data_name == "lastname":
+        lastname = fake.last_name()
+        return lastname
+    elif data_name == "address":
+        address = fake.address()
+        return address
+    elif data_name == "city":
+        city = fake.city()
+        return city
+    elif data_name == "country_id":
+        country_id = fake.country()
+        return country_id
+    elif data_name == "zone_id":
+        zone_id = ''.join(fake.random.choices(ascii_uppercase, k=3))
+        return zone_id
+
+@pytest.fixture
+def api_session():
+    api_session = requests.Session()
+    return api_session
+
+
+@pytest.fixture
+def api_token(base_url, api_session):
+    api_token = json.loads(api_session.post(
+        f'{base_url}/index.php?route=api/login',
+        data={'username': api_username,
+              'key': api_key}
+        ).text)['api_token']
+    return api_token
 
 
 @pytest.fixture

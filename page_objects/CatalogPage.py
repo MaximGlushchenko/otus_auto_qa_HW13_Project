@@ -1,5 +1,5 @@
 from random import choice
-from conftest import catalog_section
+from UI_tests_data import catalog_section
 from page_objects.MainPage import MainPage
 
 

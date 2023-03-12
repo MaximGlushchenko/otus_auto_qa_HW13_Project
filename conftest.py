@@ -61,6 +61,7 @@ def get_data(data_name):
     elif data_name == "zone_id":
         zone_id = ''.join(fake.random.choices(ascii_uppercase, k=3))
         return zone_id
+    
 
 @pytest.fixture
 def api_session():

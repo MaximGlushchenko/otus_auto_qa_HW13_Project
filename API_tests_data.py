@@ -1,10 +1,10 @@
 from random import randint, choice
 
 api_username = 'Default'
-api_key = '10xocPi4Lbx4P4UiPzSDzAvMQIk5WaZSz2t9EKd2QtQKOdxF8jby9NU4PJ6rAAUSUzUW' \
-          'yPSOsMBxUBEkXCSgsxcEqLzoQ9ixCvvJEGYviHz7pq7s2EaNH6TxMPXqmsHZ5oY2PT7X' \
-          'Fg5UbyyYZPbnOf6WSW5kP7DipSxgxKxABcwNAbAHNhsbielTxy2uUCQhDNaPv6MuZLfh' \
-          'yRephC9WFNNxfsl893HUaS5ZetsbfR6jiXeWdL2W6X8nUPRKNFD5'
+api_key = '5HSZmRZZihkTwPDu2sW5hjpcmoD50HW3f1bMUtg4UiyGYQdyfXeMMUqrjX18zckqkmVonCoNp5p' \
+          'GWVUkhGgkLfbGZrmJNGIMT3Pid3FekeAk667gCOVlxu1CNC9Dq3oVs8IoM9OxNjDcFG2ZXsFZyB' \
+          'meG5LgNvEnm1ynajviaPY1Mpcu03roDuIVCpt6CZv1v5NPhLnGMwFE9Z6Yq5BtEy3TxQX3Lac2k' \
+          'SSihedz6HW050tSueAQ7ZXwkegoaVbf'
 
 CURRENCY_LIST = ['USD', 'EUR', 'GBP']
 

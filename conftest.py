@@ -7,6 +7,7 @@ from faker import Faker
 from selenium import webdriver
 from string import ascii_uppercase
 from API_tests_data import api_key, api_username
+from webdriver_manager.core.utils import ChromeType
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -31,7 +32,8 @@ def pytest_addoption(parser):
                      default="local",
                      choices=["local", "remote"])
     parser.addoption("--bv",
-                     action="store")
+                     action="store",
+                     default="109.0")
     parser.addoption("--vnc",
                      action="store_true")
     parser.addoption("--logs",
@@ -61,7 +63,7 @@ def get_data(data_name):
     elif data_name == "zone_id":
         zone_id = ''.join(fake.random.choices(ascii_uppercase, k=3))
         return zone_id
-    
+
 
 @pytest.fixture
 def api_session():
@@ -112,7 +114,7 @@ def browser(request):
             options = ChromeOptions()
             options.headless = headless
             driver = webdriver.Chrome(
-                service=ChromeService(ChromeDriverManager().install()), options=options
+                service=ChromeService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()), options=options
             )
 
     elif machine == "remote":
@@ -129,7 +131,7 @@ def browser(request):
                                   "browserVersion": _version,
                                   "selenoid:options": {
                                       "screenResolution": "1285x720",
-                                      "name": "OTUS_homework_11",
+                                      "name": "OTUS_QA_project",
                                       "enableVNC": vnc,
                                       "enableVideo": video
                                         }

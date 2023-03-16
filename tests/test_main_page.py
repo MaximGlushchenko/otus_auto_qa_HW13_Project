@@ -4,6 +4,7 @@ from locators import *
 from page_objects.MainPage import MainPage
 
 
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.smoke
 @allure.feature('UI tests')

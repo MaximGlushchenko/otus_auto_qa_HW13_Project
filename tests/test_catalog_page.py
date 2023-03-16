@@ -4,6 +4,7 @@ from locators import *
 from page_objects.CatalogPage import CatalogPage
 
 
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.smoke
 @allure.feature('UI tests')

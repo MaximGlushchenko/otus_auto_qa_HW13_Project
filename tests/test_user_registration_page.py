@@ -4,6 +4,7 @@ from locators import *
 from page_objects.UserRegistrationPage import UserRegistrationPage
 
 
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.smoke
 @allure.feature('UI tests')
@@ -23,7 +24,7 @@ def test_check_user_reg_page_elements(browser, base_url):
     user_reg_page.element(URP_CHECKBOX_AGREE)
     user_reg_page.element(URP_CONTINUE_BUTTON)
 
-
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.regress
 @allure.feature('UI tests')
@@ -56,7 +57,7 @@ def test_user_reg(browser, base_url):
                 attachment_type=allure.attachment_type.PNG)
             raise
 
-
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.regress
 @allure.feature('UI tests')
@@ -92,7 +93,7 @@ def test_user_logout(browser, base_url):
                 attachment_type=allure.attachment_type.PNG)
             raise
 
-
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.regress
 @allure.feature('UI tests')

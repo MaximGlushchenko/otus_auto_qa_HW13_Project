@@ -3,6 +3,8 @@ import pytest
 from locators import *
 from page_objects.AdminPage import AdminPage
 
+
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.smoke
 @allure.feature('UI tests')
@@ -17,7 +19,7 @@ def test_check_admin_page_elements(browser, base_url):
     admin_page.element(AP_FORGOTTEN_PASSWORD)
     admin_page.element(AP_OPEN_CART_LINK_TEXT)
 
-
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.regress
 @allure.feature('UI tests')
@@ -36,7 +38,7 @@ def test_admin_add_product(browser, base_url):
 
     admin_page.admin_del_product(product_name)
 
-
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.regress
 @allure.feature('UI tests')

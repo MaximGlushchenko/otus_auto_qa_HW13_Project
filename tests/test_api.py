@@ -6,6 +6,8 @@ from API_tests_data import *
 from conftest import get_data
 from random import randint, choice
 
+
+@pytest.mark.all
 @pytest.mark.API
 @pytest.mark.smoke
 @allure.feature('API tests')
@@ -20,6 +22,7 @@ def test_creatе_api_session(api_session, base_url):
     assert 'api_token' in response.json()
     assert 'Success: API session successfully started!' in response.json()['success']
 
+@pytest.mark.all
 @pytest.mark.API
 @pytest.mark.regress
 @allure.feature('API tests')
@@ -35,6 +38,7 @@ def test_currency_change(api_session, api_token, base_url, currency):
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: Your currency has been changed!'
 
+@pytest.mark.all
 @pytest.mark.API
 @pytest.mark.regress
 @allure.feature('API tests')
@@ -53,6 +57,7 @@ def test_add_product_in_cart(api_session, api_token, base_url, product_id, quant
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: You have modified your shopping cart!'
 
+@pytest.mark.all
 @pytest.mark.API
 @pytest.mark.regress
 @allure.feature('API tests')
@@ -71,6 +76,7 @@ def test_edit_quantity_products_in_cart(api_session, api_token,base_url, key, qu
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: You have modified your shopping cart!'
 
+@pytest.mark.all
 @pytest.mark.API
 @pytest.mark.regress
 @allure.feature('API tests')
@@ -88,6 +94,7 @@ def test_remove_product_from_cart(api_session, api_token,base_url, key):
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: You have modified your shopping cart!'
 
+@pytest.mark.all
 @pytest.mark.API
 @pytest.mark.regress
 @allure.feature('API tests')
@@ -111,6 +118,7 @@ def test_get_product_list_from_cart(api_session, api_token,base_url, product_id,
     assert 'products' in response.json()
     assert response.json()["products"][0]["quantity"] == quantity
 
+@pytest.mark.all
 @pytest.mark.API
 @pytest.mark.regress
 @allure.feature('API tests')
@@ -131,6 +139,7 @@ def test_coupon_add(api_session, api_token, base_url, coupon):
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: Your coupon discount has been applied!'
 
+@pytest.mark.all
 @pytest.mark.API
 @pytest.mark.regress
 @allure.feature('API tests')

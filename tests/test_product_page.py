@@ -5,6 +5,7 @@ from page_objects.ProductPage import ProductPage
 from UI_tests_data import USD_to_EUR_ratio, USD_to_GBP_ratio
 
 
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.smoke
 @allure.feature('UI tests')
@@ -20,6 +21,7 @@ def test_check_product_page_elements(browser, base_url):
     product_page.element(PP_ADD_TO_WISH_LIST)
     product_page.element(PP_COMPARE_THIS_PRODUCT)
 
+@pytest.mark.all
 @pytest.mark.UI
 @pytest.mark.regress
 @allure.feature('UI tests')

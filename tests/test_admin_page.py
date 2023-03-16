@@ -5,7 +5,7 @@ from page_objects.AdminPage import AdminPage
 
 @pytest.mark.UI
 @pytest.mark.smoke
-@allure.feature('UI cases')
+@allure.feature('UI tests')
 @allure.story('Admin page')
 @allure.title('Check admin page elements')
 def test_check_admin_page_elements(browser, base_url):

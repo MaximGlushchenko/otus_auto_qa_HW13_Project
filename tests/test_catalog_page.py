@@ -6,7 +6,7 @@ from page_objects.CatalogPage import CatalogPage
 
 @pytest.mark.UI
 @pytest.mark.smoke
-@allure.feature('Check page elements')
+@allure.feature('UI tests')
 @allure.story('Catalog page')
 @allure.title('Check catalog page elements')
 def test_check_catalog_page_elements(browser, base_url):

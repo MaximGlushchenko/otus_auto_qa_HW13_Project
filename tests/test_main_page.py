@@ -6,7 +6,7 @@ from page_objects.MainPage import MainPage
 
 @pytest.mark.UI
 @pytest.mark.smoke
-@allure.feature('Check page elements')
+@allure.feature('UI tests')
 @allure.story('Main page')
 @allure.title('Check main page elements')
 def test_check_main_page_elements(browser, base_url):

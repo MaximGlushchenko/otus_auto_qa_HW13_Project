@@ -7,7 +7,7 @@ from UI_tests_data import USD_to_EUR_ratio, USD_to_GBP_ratio
 
 @pytest.mark.UI
 @pytest.mark.smoke
-@allure.feature('Check page elements')
+@allure.feature('UI tests')
 @allure.story('Product page')
 @allure.title('Check product page elements')
 def test_check_product_page_elements(browser, base_url):
@@ -22,7 +22,7 @@ def test_check_product_page_elements(browser, base_url):
 
 @pytest.mark.UI
 @pytest.mark.regress
-@allure.feature('User cases')
+@allure.feature('UI tests')
 @allure.story('Product page')
 @allure.title('Switch_currency')
 def test_switch_currency(browser, base_url):

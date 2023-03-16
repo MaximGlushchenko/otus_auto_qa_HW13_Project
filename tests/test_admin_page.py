@@ -5,7 +5,7 @@ from page_objects.AdminPage import AdminPage
 
 @pytest.mark.UI
 @pytest.mark.smoke
-@allure.feature('Check page elements')
+@allure.feature('UI cases')
 @allure.story('Admin page')
 @allure.title('Check admin page elements')
 def test_check_admin_page_elements(browser, base_url):
@@ -20,7 +20,7 @@ def test_check_admin_page_elements(browser, base_url):
 
 @pytest.mark.UI
 @pytest.mark.regress
-@allure.feature('Admin cases')
+@allure.feature('UI tests')
 @allure.story('Admin page')
 @allure.title('Admin add product')
 def test_admin_add_product(browser, base_url):
@@ -39,7 +39,7 @@ def test_admin_add_product(browser, base_url):
 
 @pytest.mark.UI
 @pytest.mark.regress
-@allure.feature('Admin cases')
+@allure.feature('UI tests')
 @allure.story('Admin page')
 @allure.title('Admin deleted product')
 def test_admin_del_product(browser, base_url):

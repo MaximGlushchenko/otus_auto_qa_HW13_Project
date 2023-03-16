@@ -6,7 +6,7 @@ from page_objects.UserRegistrationPage import UserRegistrationPage
 
 @pytest.mark.UI
 @pytest.mark.smoke
-@allure.feature('Check page elements')
+@allure.feature('UI tests')
 @allure.story('User registration page')
 @allure.title('Check user registration page elements')
 def test_check_user_reg_page_elements(browser, base_url):
@@ -26,7 +26,7 @@ def test_check_user_reg_page_elements(browser, base_url):
 
 @pytest.mark.UI
 @pytest.mark.regress
-@allure.feature('User cases')
+@allure.feature('UI tests')
 @allure.story('User registration page')
 @allure.title('User registration')
 def test_user_reg(browser, base_url):
@@ -59,7 +59,7 @@ def test_user_reg(browser, base_url):
 
 @pytest.mark.UI
 @pytest.mark.regress
-@allure.feature('User cases')
+@allure.feature('UI tests')
 @allure.story('User registration page')
 @allure.title('User logout')
 def test_user_logout(browser, base_url):
@@ -95,7 +95,7 @@ def test_user_logout(browser, base_url):
 
 @pytest.mark.UI
 @pytest.mark.regress
-@allure.feature('User cases')
+@allure.feature('UI tests')
 @allure.story('User registration page')
 @allure.title('User login')
 def test_user_login(browser, base_url):

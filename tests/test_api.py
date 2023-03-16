@@ -6,9 +6,11 @@ from API_tests_data import *
 from conftest import get_data
 from random import randint, choice
 
-@allure.feature('Check page elements')
-@allure.story('Catalog page')
-@allure.title('Check catalog page elements')
+@pytest.mark.API
+@pytest.mark.smoke
+@allure.feature('API tests')
+@allure.story('User cases')
+@allure.title('Creatе API session')
 def test_creatе_api_session(api_session, base_url):
     response = api_session.post(
         f'{base_url}/index.php?route=api/login',
@@ -18,9 +20,11 @@ def test_creatе_api_session(api_session, base_url):
     assert 'api_token' in response.json()
     assert 'Success: API session successfully started!' in response.json()['success']
 
-@allure.feature('Check page elements')
-@allure.story('Catalog page')
-@allure.title('Check catalog page elements')
+@pytest.mark.API
+@pytest.mark.regress
+@allure.feature('API tests')
+@allure.story('User cases')
+@allure.title('Currency change')
 @pytest.mark.parametrize('currency', CURRENCY_LIST)
 def test_currency_change(api_session, api_token, base_url, currency):
     response = api_session.post(
@@ -31,9 +35,11 @@ def test_currency_change(api_session, api_token, base_url, currency):
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: Your currency has been changed!'
 
-@allure.feature('Check page elements')
-@allure.story('Catalog page')
-@allure.title('Check catalog page elements')
+@pytest.mark.API
+@pytest.mark.regress
+@allure.feature('API tests')
+@allure.story('User cases')
+@allure.title('Add product in cart')
 @pytest.mark.parametrize('product_id, quantity', PRODUCT_ID_AND_QUANTITY_LIST)
 def test_add_product_in_cart(api_session, api_token, base_url, product_id, quantity):
     response = api_session.post(
@@ -47,9 +53,11 @@ def test_add_product_in_cart(api_session, api_token, base_url, product_id, quant
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: You have modified your shopping cart!'
 
-@allure.feature('Check page elements')
-@allure.story('Catalog page')
-@allure.title('Check catalog page elements')
+@pytest.mark.API
+@pytest.mark.regress
+@allure.feature('API tests')
+@allure.story('User cases')
+@allure.title('Edit quantity products in cart')
 @pytest.mark.parametrize('key, quantity', KEY_AND_QUANTITY_LIST)
 def test_edit_quantity_products_in_cart(api_session, api_token,base_url, key, quantity):
     response = api_session.post(
@@ -63,9 +71,11 @@ def test_edit_quantity_products_in_cart(api_session, api_token,base_url, key, qu
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: You have modified your shopping cart!'
 
-@allure.feature('Check page elements')
-@allure.story('Catalog page')
-@allure.title('Check catalog page elements')
+@pytest.mark.API
+@pytest.mark.regress
+@allure.feature('API tests')
+@allure.story('User cases')
+@allure.title('Remove product from cart')
 @pytest.mark.parametrize('key', KEY_LIST)
 def test_remove_product_from_cart(api_session, api_token,base_url, key):
     response = api_session.post(
@@ -78,9 +88,11 @@ def test_remove_product_from_cart(api_session, api_token,base_url, key):
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: You have modified your shopping cart!'
 
-@allure.feature('Check page elements')
-@allure.story('Catalog page')
-@allure.title('Check catalog page elements')
+@pytest.mark.API
+@pytest.mark.regress
+@allure.feature('API tests')
+@allure.story('User cases')
+@allure.title('Get product list from cart')
 @pytest.mark.parametrize('product_id, quantity', PRODUCT_ID_AND_QUANTITY_LIST)
 def test_get_product_list_from_cart(api_session, api_token,base_url, product_id, quantity):
     add_product_response = api_session.post(
@@ -99,9 +111,11 @@ def test_get_product_list_from_cart(api_session, api_token,base_url, product_id,
     assert 'products' in response.json()
     assert response.json()["products"][0]["quantity"] == quantity
 
-@allure.feature('Check page elements')
-@allure.story('Catalog page')
-@allure.title('Check catalog page elements')
+@pytest.mark.API
+@pytest.mark.regress
+@allure.feature('API tests')
+@allure.story('User cases')
+@allure.title('Add coupon')
 @pytest.mark.parametrize('coupon', COUPON_LIST)
 def test_coupon_add(api_session, api_token, base_url, coupon):
     # """Купоны в COUPON_LIST действительны до 01/01/2025.При необходимости
@@ -117,9 +131,11 @@ def test_coupon_add(api_session, api_token, base_url, coupon):
     assert response.status_code == 200
     assert response.json()['success'] == 'Success: Your coupon discount has been applied!'
 
-@allure.feature('Check page elements')
-@allure.story('Catalog page')
-@allure.title('Check catalog page elements')
+@pytest.mark.API
+@pytest.mark.regress
+@allure.feature('API tests')
+@allure.story('User cases')
+@allure.title('Set shipping address')
 def test_set_shipping_address(api_session, api_token, base_url):
     data = {
         'firstname': f'{get_data("firstname")}',
@@ -136,5 +152,3 @@ def test_set_shipping_address(api_session, api_token, base_url):
     )
     assert response.status_code == 200
     assert response.json().get('success') == 'Success: Payment address has been set!'
-
-

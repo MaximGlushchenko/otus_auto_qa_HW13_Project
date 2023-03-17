@@ -131,3 +131,5 @@ dmypy.json
 *.cfg
 allure-results/
 Scripts/
+allure-results/
+allure-report/
